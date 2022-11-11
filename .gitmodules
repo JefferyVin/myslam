@@ -1,0 +1,3 @@
+[submodule "twitchslam"]
+	path = twitchslam
+	url = https://github.com/geohot/twitchslam.git
