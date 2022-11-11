@@ -20,7 +20,7 @@ fe = Extractor()
 
 def process_frame(img):
     img = cv2.resize(img, (W, H))
-    kps, des, matches, last = fe.extract(img)
+    kps, des = fe.extract(img)
     #kps, des = orb.detectAndCompute(img,None)
     for p in kps:
         u, v = map(lambda x: int(round(x)), p.pt)
