@@ -17,7 +17,6 @@ fe = Extractor()
 def process_frame(img):
     img = cv2.resize(img, (W, H))
     matches = fe.extract(img)
-    #kps, des = orb.detectAndCompute(img,None)
 
     print("matches %d" % ((len(matches))))
 
@@ -27,16 +26,6 @@ def process_frame(img):
         cv2.line(img, (u1,v1), (u2, v2), color = (255, 0, 0))
         cv2.circle(img, (u1,v1), color = (0, 255, 0), radius = 2)
         cv2.circle(img, (u2,v2), color = (0, 255, 0), radius = 2)
-
-
-
-    # for p in kps:
-    #     u, v = map(lambda x: int(round(x)), p.pt)
-    #     cv2.circle(img, (u,v), color = (0, 255, 0), radius = 3)
-
-    # for p in kps:
-    #     u, v = map(lambda x: int(round(x)), p[0])
-    #     cv2.circle(img, (u,v), color = (0, 255, 0), radius = 3)
 
     cv2.imshow('image', img)
     #print(img.shape)

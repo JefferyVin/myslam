@@ -13,23 +13,6 @@ class Extractor(object):
         self.bf = cv2.BFMatcher(cv2.NORM_HAMMING)
 
     def extract(self, img):
-        # Attempt at SIFT (problem too slow)
-        # gray= cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
-        # sift = cv2.SIFT_create()
-        # return sift.detectAndCompute(img, None)
-        # 
-        # Attempt to use grid (problem the clusters are too much)        
-        # sy = img.shape[0]//self.GY
-        # sx = img.shape[1]//self.GX
-        # akp = []
-        # for ry in range(0, img.shape[0], sy):
-        #     for rx in range(0, img.shape[1], sx):
-        #         img_chunk = img[ry:ry+sy, rx:rx+sx]
-        #         chunkKeypoints = self.orb.detect(img_chunk, None)
-        #         for p in chunkKeypoints:
-        #             p.pt = (p.pt[0] + rx, p.pt[1]+ry)
-        #             akp.append(p)
-        # return akp
 
         #detection
         corners = cv2.goodFeaturesToTrack(cv2.cvtColor(img,cv2.COLOR_BGR2GRAY), 3000, 0.01, 3)
